@@ -164,6 +164,9 @@ button {
     &:focus {
       color: $base-blue;
     }
+    span{
+      font-size: 1.5em;
+    }
   }
 
   &__menu {
@@ -199,6 +202,11 @@ button {
 
     #{$block}__menuClose {
       @include positionZero(true, true, false, false);
+
+      span{
+        font-size: 1.5em;
+        float:right;
+      }
     }
 
     &:target {
@@ -320,13 +328,19 @@ section {
 
       .carousel-item {
         width: 100%;
-        height: calc(100vh - 114px);
+
         background-size: cover;
         background-position: top right;
         background-repeat: no-repeat;
         overflow: hidden;
         transition-property: opacity;
         background-position: center top;
+
+        @media (min-width: 576px) {
+          & {
+            height: calc(100vh - 114px);
+          }
+        }
 
         &::before {
           @include positionZero(true, true, true, true);
@@ -530,8 +544,8 @@ section {
       }
     }
     #{$block}__portfolioVideo {
-      width: 99.5%;
-      height: 720px;
+      width: 100%;
+      height: 25em;
     }
   }
 }
