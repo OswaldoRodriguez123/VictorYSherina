@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprenda a bailar rapidamente por un modico precio. Se añaden nuevos tutoriales semanalmente en varios estilos y niveles de baile. ¡Únete hoy!.">
+    <meta name="keywords" content="precios, economicos, tutoriales, aprender a bailar">
+
+    <title>Victor y Sherina - Presupuesto</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="services container">
+        <div class="sectionTitle">
+            <h1>Presupuesto</h1>
+        </div>
+        <div class="row contact__infoRow">
+            <div class="col-lg-3 align-items-stretch animate__animated animate__fadeInRight">
+                <div class="contact__infoBox">
+                    <i class="bx bx-map"></i>
+                    <h3>Dirección</h3>
+                    <p><h6>Sta Isabel 1127, Santiago</h6></p>
+                </div>
+            </div>
+            <div class="col-lg-3 align-items-stretch animate__animated animate__fadeInRight">
+                <div class="contact__infoBox">
+                    <i class="bx bx-envelope"></i>
+                    <h3>Correo</h3>
+                    <p><h6>info@victorysherina.com</h6></p>
+                </div>
+            </div>
+            <div class="col-lg-3 align-items-stretch animate__animated animate__fadeInRight">
+                <div class="contact__infoBox">
+                    <i class="bx bx-phone-call"></i>
+                    <h3>Teléfono</h3>
+                    <p><h6>999999999</h6></p>
+                </div>
+            </div>
+            <div class="col-lg-3 align-items-stretch animate__animated animate__fadeInRight">
+                <div class="contact__infoBox">
+                    <i class="bx bx-dollar"></i>
+                    <h3>Costo Clase</h3>
+                    <p><h6 id="price"></h6></p>
+                </div>
+            </div>
+        </div>
+        <form role="form" class="contact__contactForm animate__animated animate__fadeInUpBig">
+            <div class="form-row">
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" />
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="correo">Correo Electronico</label>
+                        <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" />
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="cantidadClases">Cantidad de clases</label>
+                        <input type="text" class="form-control" name="cantidadClases" id="cantidadClases" placeholder="Cantidad de clases" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-4 text-center">
+                        <button id="submit" onclick="return false;">Enviar Correo</button>
+                        <button type="reset">Limpiar Formulario</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <script src="assets/js/main.js"></script>
+    <script src="src/class/utils.js"></script>
+    <script src="src/class/class.js"></script>
+    <script src="src/class/person.js"></script>
+    <script src="src/class/budget.js"></script>
+    <script src="assets/js/budget.js"></script>
+</body>
+
+</html>

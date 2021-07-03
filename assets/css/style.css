@@ -654,14 +654,14 @@ section {
   background: #587187;
 }
 
-.contact__contactForm button[type="submit"] {
+.contact__contactForm #submit {
   background: #428bca;
   border: 0;
   padding: 10px 24px;
   color: #fff;
 }
 
-.contact__contactForm button[type="submit"]:hover {
+.contact__contactForm #submit:hover {
   background: #6aa3d5;
 }
 
