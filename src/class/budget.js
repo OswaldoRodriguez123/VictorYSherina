@@ -7,7 +7,6 @@ class Presupuesto{
     }
     validarClases = (cantidadClases) => {
         if(isNaN(cantidadClases) || cantidadClases <= 0 || !Number.isInteger(cantidadClases)){
-            alert('Ingrese una cantidad de clases valida');
             return false;
         }
         return true;
@@ -22,6 +21,19 @@ class Presupuesto{
             clases.push(clase);
         }
         this.clases = clases;
+    }
+    dibujarFechas = () => {
+        const utils = new Utils();
+        const budgetTable = document.getElementById('budgetTable');
+        const budgetTableTbody = budgetTable.getElementsByTagName('tbody')[0];
+        budgetTableTbody.innerHTML = '';
+        this.clases.forEach((c,i) => {
+            let row = budgetTableTbody.insertRow(i);
+            let count = row.insertCell(0);
+            var date = row.insertCell(1);
+            count.innerHTML = (i+1);
+            date.innerHTML = utils.formatDate(c.fechaClase);
+        })
     }
     calcularTotal = () => this.totalPresupuesto = this.clases.length * this.costoClase;
     primeraClase = () => this.clases

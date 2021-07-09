@@ -1,6 +1,11 @@
 const costoClase = 3500;
 const utils = new Utils();
 const btnSubmit = document.querySelector('#submit');
+const inputCantidadClases = document.querySelector('#cantidadClases');
+const presupuestoObj = {
+    costoClase
+}
+let presupuesto = new Presupuesto(presupuestoObj);
 
 function init() {
     document.getElementById("price").innerHTML = utils.formatPrice(costoClase);
@@ -9,6 +14,16 @@ function init() {
 btnSubmit.onclick = (e) => {
     e.preventDefault();
     submit();
+}
+
+inputCantidadClases.onchange = (e) => {
+    let cantidadClases = Number(e.target.value);
+
+    if(!presupuesto.validarClases(cantidadClases)){
+        cantidadClases = 0;
+    }
+    presupuesto.generarClases(cantidadClases);
+    presupuesto.dibujarFechas();
 }
 
 const submit = () => {
@@ -38,19 +53,11 @@ const submit = () => {
     }
     const persona = new Persona(personaObj);
 
-    const presupuestoObj = {
-        costoClase
-    }
-
-    let presupuesto = new Presupuesto(presupuestoObj);
-
-    cantidadClases = Number(document.getElementById('cantidadClases').value)
-
-    if(!presupuesto.validarClases(cantidadClases)){
+    if(presupuesto.clases.length == 0){
+        alert('Ingrese una cantidad de clases valida');
         return;
     }
 
-    presupuesto.generarClases(cantidadClases);
     presupuesto.calcularTotal();
 
     const textoClases = presupuesto.clases.length > 0 ? 'las clases' : 'la clase';
