@@ -1,9 +1,14 @@
 const costoClase = 3500;
 const utils = new Utils();
+const btnSubmit = document.querySelector('#submit');
 
 function init() {
     document.getElementById("price").innerHTML = utils.formatPrice(costoClase);
-    document.getElementById("submit").addEventListener("click", submit, false);
+}
+
+btnSubmit.onclick = (e) => {
+    e.preventDefault();
+    submit();
 }
 
 const submit = () => {
