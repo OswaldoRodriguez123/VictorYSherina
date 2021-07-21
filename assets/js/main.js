@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-    header = `  <section class="topbar container clearfix d-none d-lg-block">
+document.addEventListener("DOMContentLoaded", (event) => {
+  header = `  <section class="topbar container clearfix d-none d-lg-block">
                     <div>
                         <div class="topbar__contactInfo float-left">
                             <i class="icofont-envelope"></i><a href="mailto:info@victorysherina.com">info@victorysherina.com</a>
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     <a href="#menuShow" class="backdrop"></a>
                 </header>`;
 
-    footer = `  <footer class="footer">
+  footer = `  <footer class="footer">
                     <div class="footer__topFooter">
                         <div class="container">
                             <div class="row">
@@ -63,12 +63,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     </div>
                 </footer>`;
 
-    body = document.getElementsByTagName('body')[0];
-    body.insertAdjacentHTML('beforebegin', header);
-    body.insertAdjacentHTML('beforeend', footer);
+  body = document.getElementsByTagName("body")[0];
+  body.insertAdjacentHTML("beforebegin", header);
+  body.insertAdjacentHTML("beforeend", footer);
 
-    filename = window.location.pathname.split('/').pop().split('#')[0].split('?')[0];
-    menu = document.querySelectorAll(`[href="${filename}"]`).forEach(m => {
-        m.classList.add("active");
-    });
+  filename = window.location.pathname
+    .split("/")
+    .pop()
+    .split("#")[0]
+    .split("?")[0];
+  menu = document.querySelectorAll(`[href="${filename}"]`).forEach((m) => {
+    m.classList.add("active");
+  });
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "assets/vendor/jquery/jquery.min.js";
+
+  document.head.appendChild(script);
 });
