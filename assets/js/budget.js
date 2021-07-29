@@ -2,6 +2,8 @@ var everythingLoaded = setInterval(() => {
   if (/loaded|complete/.test(document.readyState)) {
     clearInterval(everythingLoaded);
 
+    $(".contact__infoBox").slideUp(1000).slideDown(1000);
+
     const costoClase = 3500;
     const utils = new Utils();
     const btnSubmit = $("#submit");
