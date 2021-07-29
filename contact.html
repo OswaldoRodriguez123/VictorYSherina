@@ -46,23 +46,19 @@
                     <div class="col-12 col-sm-4">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" class="form-control" placeholder="Nombre" />
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-4">
                         <div class="form-group">
                             <label for="correo">Correo Electronico</label>
-                            <input type="email" class="form-control" name="correo" placeholder="Correo" />
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-4">
                         <div class="form-group">
                             <label for="medio">¿Como nos conociste?</label>
-                            <select class="form-control" name="medio">
-                                <option value="1" selected>Redes Sociales</option>
-                                <option value="2">Television</option>
-                                <option value="3">Por un amigo</option>
-                            </select>
+                            <select class="form-control" id="medio" name="medio"></select>
                         </div>
                     </div>
                 </div>
@@ -70,14 +66,14 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea class="form-control" name="mensaje" rows="10" placeholder="Mensaje"></textarea>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="10" placeholder="Mensaje"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1">
+                            <input class="form-check-input" type="checkbox" id="actualizaciones" name="actualizaciones">
                             <label class="form-check-label">¿Desea recibir las ultimas actualizaciones de la academia?</label>
                         </div>
                     </div>
@@ -94,6 +90,10 @@
         </div>
     </section>
     <script src="assets/js/main.js"></script>
+    <script src="src/class/utils.js"></script>
+    <script src="src/class/person.js"></script>
+    <script src="src/class/contact.js"></script>
+    <script src="assets/js/contact.js"></script>
 </body>
 
 </html>
