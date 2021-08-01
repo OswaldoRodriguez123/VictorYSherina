@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
   header = `  <section class="topbar container clearfix d-none d-lg-block">
                     <div>
                         <div class="topbar__contactInfo float-left">

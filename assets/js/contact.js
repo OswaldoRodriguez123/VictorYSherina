@@ -1,11 +1,11 @@
+const utils = new Utils();
+
 var everythingLoaded = setInterval(() => {
   if (/loaded|complete/.test(document.readyState)) {
     clearInterval(everythingLoaded);
-
     getMedios();
-    const utils = new Utils();
-    const btnSubmit = $("#submit");
 
+    const btnSubmit = $("#submit");
     btnSubmit.click((e) => {
       e.preventDefault();
       submit();
@@ -51,12 +51,13 @@ var everythingLoaded = setInterval(() => {
       contacto.enviarCorreo();
 
       console.log(contacto);
+      document.getElementById("form").reset();
     };
   }
 }, 10);
 
 getMedios = () => {
-  $.getJSON("assets/data/medios.json", (medios, status) => {
+  $.getJSON("assets/data/medios.json", (medios) => {
     if (medios) {
       let medioshtml = "";
       medios.forEach((medio) => {

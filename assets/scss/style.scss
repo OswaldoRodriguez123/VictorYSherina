@@ -29,7 +29,7 @@ $border-botton-light-gray: 1px solid $base-light-gray;
   align-items: center;
 }
 
-@mixin positionZero($top,$right,$bottom,$left) {
+@mixin positionZero($top, $right, $bottom, $left) {
   position: absolute;
   @if $top {
     top: 0;
@@ -45,12 +45,12 @@ $border-botton-light-gray: 1px solid $base-light-gray;
   }
 }
 
-@mixin boxShadow($x,$y:false,$blur:false,$color:false){
+@mixin boxShadow($x, $y: false, $blur: false, $color: false) {
   @if $x {
     -webkit-box-shadow: $x $y $blur $color;
     -moz-box-shadow: $x $y $blur $color;
     box-shadow: $x $y $blur $color;
-  }@else{
+  } @else {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -164,7 +164,7 @@ button {
     &:focus {
       color: $base-blue;
     }
-    span{
+    span {
       font-size: 1.5em;
     }
   }
@@ -203,9 +203,9 @@ button {
     #{$block}__menuClose {
       @include positionZero(true, true, false, false);
 
-      span{
+      span {
         font-size: 1.5em;
-        float:right;
+        float: right;
       }
     }
 
@@ -465,7 +465,6 @@ section {
     text-align: center;
 
     #{$block}__icon {
-
       @include flexCenter;
 
       i {

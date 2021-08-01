@@ -1,17 +1,13 @@
+const costoClase = 3500;
+const utils = new Utils();
+const presupuestoObj = {
+  costoClase,
+};
+let presupuesto = new Presupuesto(presupuestoObj);
+
 var everythingLoaded = setInterval(() => {
   if (/loaded|complete/.test(document.readyState)) {
     clearInterval(everythingLoaded);
-
-    $(".contact__infoBox").slideUp(1000).slideDown(1000);
-
-    const costoClase = 3500;
-    const utils = new Utils();
-    const btnSubmit = $("#submit");
-    const inputCantidadClases = $("#cantidadClases");
-    const presupuestoObj = {
-      costoClase,
-    };
-    let presupuesto = new Presupuesto(presupuestoObj);
 
     function init() {
       $("#price").html(utils.formatPrice(costoClase));
@@ -19,19 +15,30 @@ var everythingLoaded = setInterval(() => {
 
     init();
 
-    btnSubmit.click((e) => {
-      e.preventDefault();
-      submit();
+    const inputCantidadClases = $("#cantidadClases");
+    inputCantidadClases.change(() => {
+      calcularClases();
     });
-
-    inputCantidadClases.change((e) => {
-      let cantidadClases = Number(e.target.value);
+    calcularClases = () => {
+      let cantidadClases = Number($(inputCantidadClases).val());
 
       if (!presupuesto.validarClases(cantidadClases)) {
         cantidadClases = 0;
       }
       presupuesto.generarClases(cantidadClases);
-      presupuesto.dibujarFechas();
+
+      if (cantidadClases > 0) {
+        presupuesto.dibujarFechas();
+        $("#budgetTable").fadeIn(1000);
+      } else {
+        $("#budgetTable").fadeOut(1000);
+      }
+    };
+
+    const btnSubmit = $("#submit");
+    btnSubmit.click((e) => {
+      e.preventDefault();
+      submit();
     });
 
     const submit = () => {
@@ -72,15 +79,27 @@ var everythingLoaded = setInterval(() => {
         presupuesto.clases.length > 0 ? "las clases" : "la clase";
 
       alert(
-        `El total presupuestado por ${textoClases} es de: ${
+        `El total presupuestado por ${textoClases} es de: ${utils.formatPrice(
           presupuesto.totalPresupuesto
-        }\ny la primera clase es el ${presupuesto.primeraClase()}`
+        )}\ny la primera clase es el ${presupuesto.primeraClase()}`
       );
 
       presupuesto.persona = persona;
       presupuesto.enviarCorreo();
 
       console.log(presupuesto);
+      resetForm();
+    };
+
+    const btnReset = $(":reset");
+    btnReset.click((e) => {
+      e.preventDefault();
+      resetForm();
+    });
+
+    resetForm = () => {
+      document.getElementById("form").reset();
+      calcularClases();
     };
   }
 }, 10);
